@@ -31,3 +31,10 @@ GOOGLE_AUTH_USER_INFO_URL=https://www.googleapis.com/userinfo/v2/me
 GOOGLE_AUTH_CLIENT_ID="..."
 GOOGLE_AUTH_CLIENT_SECRET="..."
 ```
+Add it to the application:
+```
+app = Dash(__name__)
+
+from dash_google_oauth.google_auth import GoogleAuth
+auth = GoogleAuth(app)
+```
