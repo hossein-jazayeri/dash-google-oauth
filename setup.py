@@ -2,13 +2,13 @@ import setuptools
 
 setuptools.setup(
     name='dash-google-oauth',
-    version='1.0',
+    version='1.1',
     author='Hossein Jazayeri',
     author_email='hossein.jaza@gmail.com',
     description='Authenticate to Dash app using Google OAuth',
     long_description=open('README.md', 'rt').read().strip(),
     long_description_content_type='text/markdown',
-    url='https://github.com/hossein.jaza/dash-google-oauth',
+    url='https://github.com/hossein-jazayeri/dash-google-oauth',
     packages=['dash_google_oauth'],
     install_requires=[
         'dash>=1.2.0',
