@@ -4,10 +4,12 @@ This is a simple library using Google OAuth to authenticate and view a Dash app
 written based on [dash-auth](https://github.com/plotly/dash-auth).
 
 ### Setup
+Navigate to [Google API Console](https://console.cloud.google.com/apis/credentials), and setup an OAuth credentials
+with `http://localhost:5000/login/callback` as authorized redirect URL.
 ```
 $ pip install dash-google-oauth
 ```
-Define following EVN variables:
+Define following environment variables:
 ```
 FLASK_SECRET_KEY
 
@@ -19,7 +21,7 @@ GOOGLE_AUTH_USER_INFO_URL
 GOOGLE_AUTH_CLIENT_ID
 GOOGLE_AUTH_CLIENT_SECRET
 ```
-Example envs using [python-dotenv](https://pypi.org/project/python-dotenv/):
+for example using [python-dotenv](https://pypi.org/project/python-dotenv/):
 ```
 FLASK_SECRET_KEY="..."
 
