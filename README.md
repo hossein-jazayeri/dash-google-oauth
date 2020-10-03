@@ -2,10 +2,13 @@
 
 This is a simple library using Google OAuth to authenticate and view a Dash app
 written based on [dash-auth](https://github.com/plotly/dash-auth).
+Upon authentication, a cookie is created and kept for 2 weeks.
 
 ### Setup
 Navigate to [Google API Console](https://console.cloud.google.com/apis/credentials), and setup an OAuth credentials
 with `http://localhost:5000/login/callback` as authorized redirect URL.
+
+Install the package:
 ```
 $ pip install dash-google-oauth
 ```
@@ -40,3 +43,4 @@ app = Dash(__name__)
 from dash_google_oauth.google_auth import GoogleAuth
 auth = GoogleAuth(app)
 ```
+To logout, you may make a `GET` request to `/logout`
