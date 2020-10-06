@@ -6,7 +6,7 @@ Upon authentication, a cookie is created and kept for 2 weeks.
 
 ### Setup
 Navigate to [Google API Console](https://console.cloud.google.com/apis/credentials), and setup an OAuth credentials
-with `http://localhost:5000/login/callback` as authorized redirect URL.
+with `/login/callback` as authorized redirect URL i.e. `http://localhost:5000/login/callback`.
 
 Install the package:
 ```
@@ -43,4 +43,6 @@ app = Dash(__name__)
 from dash_google_oauth.google_auth import GoogleAuth
 auth = GoogleAuth(app)
 ```
-To logout, you may make a `GET` request to `/logout`
+You have access to `/logout` route in order to logout user by making a `GET` request.
+
+User's name stored in cookie: `flask.request.cookies.get('AUTH-USER')`
