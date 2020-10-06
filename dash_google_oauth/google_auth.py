@@ -47,6 +47,7 @@ class GoogleAuth(Auth):
 
         uri, state = session.create_authorization_url(os.environ.get('GOOGLE_AUTH_URL'))
 
+        flask.session['REDIRECT_URL'] = flask.request.url
         flask.session[AUTH_STATE_KEY] = state
         flask.session.permanent = True
 
@@ -95,7 +96,7 @@ class GoogleAuth(Auth):
             resp = google.get(os.environ.get('GOOGLE_AUTH_USER_INFO_URL'))
             if resp.status_code == 200:
                 user_data = resp.json()
-                r = flask.redirect('/')
+                r = flask.redirect(flask.session['REDIRECT_URL'])
                 r.set_cookie(COOKIE_AUTH_USER_NAME, user_data['name'], max_age=COOKIE_EXPIRY)
                 r.set_cookie(COOKIE_AUTH_ACCESS_TOKEN, token['access_token'], max_age=COOKIE_EXPIRY)
                 flask.session[user_data['name']] = token['access_token']
